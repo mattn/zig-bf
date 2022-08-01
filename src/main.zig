@@ -9,10 +9,10 @@ fn brainfuck(allocator: std.mem.Allocator, code: []const u8) !void {
     while (pc < code.len) : (pc += 1) {
         switch (code[pc]) {
             '+' => {
-                bytes.items[dlen] += 1;
+                bytes.items[dlen] +%= 1;
             },
             '-' => {
-                bytes.items[dlen] -= 1;
+                bytes.items[dlen] -%= 1;
             },
             '>' => {
                 dlen += 1;
